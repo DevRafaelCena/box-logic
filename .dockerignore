@@ -1,0 +1,57 @@
+# Dependências
+node_modules
+npm-debug.log*
+
+# Arquivos de build
+dist
+build
+*.tgz
+
+# Arquivos de desenvolvimento
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+logs
+*.log
+
+# Arquivos temporários
+.tmp
+.temp
+
+# Arquivos de teste
+coverage
+.nyc_output
+test-results
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Documentação
+README.md
+SWAGGER_EXAMPLES.md
+TROUBLESHOOTING.md
+*.md
+
+# Arquivos de teste
+test-api.js
+test-api.html
+
+# Outros
+.DS_Store
+Thumbs.db

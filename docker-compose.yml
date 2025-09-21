@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  boxlogic-api:
+    build: .
+    container_name: boxlogic-api
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - VALID_API_KEYS=boxlogic-prod-key,boxlogic-admin-key
+      - AUTH_HEADER_NAME=x-api-key
+      - ALLOW_BEARER_TOKEN=true
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3000/api/docs",
+          "||",
+          "exit",
+          "1",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - boxlogic-network
+
+networks:
+  boxlogic-network:
+    driver: bridge
